@@ -23,7 +23,21 @@ public class TraversalPractice {
      * @return the sum of the leaf node values
      */
     public static int sumLeafNodes(TreeNode node) {
-        return -1;
+        if (node == null) return 0;
+
+        // initiate total as 0
+        int total = 0;
+
+        // if statement for only leaf nodes and save that data into total
+        if (node.left == null && node.right == null){
+        total = node.data;
+        }
+
+        // add nodes into total
+        total +=sumLeafNodes(node.left);
+        total += sumLeafNodes(node.right);
+
+        return total;
     }
 
     /**
@@ -50,7 +64,19 @@ public class TraversalPractice {
      * @return the number of nodes in the tree
      */
     public static int size(TreeNode node) {
-        return -1;
+        if (node == null) return 0;
+    
+        // initiate count
+        int count = 0;
+
+        //when node != null, count will add 1
+        count += 1;
+
+        // add on subtree nodes to count
+        count += size(node.left);
+        count += size(node.right);
+
+        return count;
     }
 
     /**
@@ -77,7 +103,21 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int branchCount(TreeNode node) {
-        return -1;
+        if (node == null) return 0;
+
+        // initiate count
+        int count = 0;
+
+        // if statement to check if left node or right node is not null, then we add 1 to count
+        if (node.left != null || node.right != null){
+            count++;
+        }
+
+        // add count from subtree
+        count += branchCount(node.left);
+        count += branchCount(node.right);
+
+        return count;
     }
 
 
@@ -105,6 +145,23 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int max(TreeNode node) {
-        return Integer.MIN_VALUE;
+        if (node == null) return Integer.MIN_VALUE;
+
+        // initiate the current max as the root data
+        int currentMax = node.data;
+
+        // get the max of the left subtree
+        int leftMax = max(node.left);
+
+        // get the max of the right subtree
+        int rightMax = max(node.right);
+
+        // compare each max subtree with the current max
+        currentMax = Math.max(currentMax, leftMax);
+        currentMax = Math.max(currentMax, rightMax);
+
+        return currentMax;
+
+        
     }
 }
