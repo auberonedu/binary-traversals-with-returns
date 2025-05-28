@@ -454,4 +454,27 @@ public class TraversalPracticeTest {
         );
         assertEquals(20, TraversalPractice.max(root));
     }
+
+
+    /**
+     * Tree:
+     *       -19
+     *       /  \
+     *     -51  -15
+     *         /  \
+     *       -3   -20
+     *         \
+     *         -8
+     */
+    @Test
+    public void testNegative_max() {
+        TreeNode root = new TreeNode(-19,
+            new TreeNode(-51),
+            new TreeNode(-15,
+                new TreeNode(-3, null, new TreeNode(-8)),
+                new TreeNode(-20)
+            )
+        );
+        assertEquals(-3, TraversalPractice.max(root));
+    }
 }
