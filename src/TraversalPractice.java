@@ -116,7 +116,7 @@ public class TraversalPractice {
         // add count from subtree
         count += branchCount(node.left);
         count += branchCount(node.right);
-        
+
         return count;
     }
 
@@ -145,6 +145,23 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int max(TreeNode node) {
-        return Integer.MIN_VALUE;
+        if (node == null) return Integer.MIN_VALUE;
+
+        // initiate the current max as the root data
+        int currentMax = node.data;
+
+        // get the max of the left subtree
+        int leftMax = max(node.left);
+
+        // get the max of the right subtree
+        int rightMax = max(node.right);
+
+        // compare each max subtree with the current max
+        currentMax = Math.max(currentMax, leftMax);
+        currentMax = Math.max(currentMax, rightMax);
+
+        return currentMax;
+
+        
     }
 }
