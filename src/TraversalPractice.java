@@ -75,7 +75,7 @@ public class TraversalPractice {
         // add on subtree nodes to count
         count += size(node.left);
         count += size(node.right);
-        
+
         return count;
     }
 
@@ -103,7 +103,21 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int branchCount(TreeNode node) {
-        return -1;
+        if (node == null) return 0;
+
+        // initiate count
+        int count = 0;
+
+        // if statement to check if left node or right node is not null, then we add 1 to count
+        if (node.left != null || node.right != null){
+            count++;
+        }
+
+        // add count from subtree
+        count += branchCount(node.left);
+        count += branchCount(node.right);
+        
+        return count;
     }
 
 

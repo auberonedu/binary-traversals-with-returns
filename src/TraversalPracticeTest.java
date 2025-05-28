@@ -229,118 +229,118 @@ public class TraversalPracticeTest {
         assertEquals(5, TraversalPractice.size(root));
     }
 
-    // /**
-    //  * Tree:
-    //  *          9
-    //  *         / \
-    //  *        2   5
-    //  *       / \   \
-    //  *      7   1   3
-    //  *     /       / \
-    //  *    4       8  33
-    //  *     \      /  \
-    //  *      6    0    77
-    //  */
-    // @Test
-    // public void testSampleTree_branchCount() {
-    //     TreeNode root = new TreeNode(9,
-    //         new TreeNode(2,
-    //             new TreeNode(7,
-    //                 new TreeNode(4, null, new TreeNode(6)),
-    //                 null
-    //             ),
-    //             new TreeNode(1)
-    //         ),
-    //         new TreeNode(5,
-    //             null,
-    //             new TreeNode(3,
-    //                 new TreeNode(8),
-    //                 new TreeNode(33, new TreeNode(0), new TreeNode(77))
-    //             )
-    //         )
-    //     );
-    //     assertEquals(7, TraversalPractice.branchCount(root));
-    // }
+    /**
+     * Tree:
+     *          9
+     *         / \
+     *        2   5
+     *       / \   \
+     *      7   1   3
+     *     /       / \
+     *    4       8  33
+     *     \      /  \
+     *      6    0    77
+     */
+    @Test
+    public void testSampleTree_branchCount() {
+        TreeNode root = new TreeNode(9,
+            new TreeNode(2,
+                new TreeNode(7,
+                    new TreeNode(4, null, new TreeNode(6)),
+                    null
+                ),
+                new TreeNode(1)
+            ),
+            new TreeNode(5,
+                null,
+                new TreeNode(3,
+                    new TreeNode(8),
+                    new TreeNode(33, new TreeNode(0), new TreeNode(77))
+                )
+            )
+        );
+        assertEquals(7, TraversalPractice.branchCount(root));
+    }
 
-    // /**
-    //  * Tree:
-    //  *     42
-    //  */
-    // @Test
-    // public void testSingleNode_branchCount() {
-    //     TreeNode root = new TreeNode(42);
-    //     assertEquals(0, TraversalPractice.branchCount(root));
-    // }
+    /**
+     * Tree:
+     *     42
+     */
+    @Test
+    public void testSingleNode_branchCount() {
+        TreeNode root = new TreeNode(42);
+        assertEquals(0, TraversalPractice.branchCount(root));
+    }
 
-    // /**
-    //  * Tree:
-    //  *     1
-    //  *    /
-    //  *   2
-    //  */
-    // @Test
-    // public void testLeftOnlyChild_branchCount() {
-    //     TreeNode root = new TreeNode(1, new TreeNode(2), null);
-    //     assertEquals(1, TraversalPractice.branchCount(root));
-    // }
+    /**
+     * Tree:
+     *     1
+     *    /
+     *   2
+     */
+    @Test
+    public void testLeftOnlyChild_branchCount() {
+        TreeNode root = new TreeNode(1, new TreeNode(2), null);
+        assertEquals(1, TraversalPractice.branchCount(root));
+    }
 
-    // /**
-    //  * Tree:
-    //  *   1
-    //  *    \
-    //  *     3
-    //  */
-    // @Test
-    // public void testRightOnlyChild_branchCount() {
-    //     TreeNode root = new TreeNode(1, null, new TreeNode(3));
-    //     assertEquals(1, TraversalPractice.branchCount(root));
-    // }
+    /**
+     * Tree:
+     *   1
+     *    \
+     *     3
+     */
+    @Test
+    public void testRightOnlyChild_branchCount() {
+        TreeNode root = new TreeNode(1, null, new TreeNode(3));
+        assertEquals(1, TraversalPractice.branchCount(root));
+    }
 
-    // /**
-    //  * Tree: null (empty tree)
-    //  */
-    // @Test
-    // public void testNullInput_branchCount() {
-    //     assertEquals(0, TraversalPractice.branchCount(null));
-    // }
+    /**
+     * Tree: null (empty tree)
+     */
+    @Test
+    public void testNullInput_branchCount() {
+        assertEquals(0, TraversalPractice.branchCount(null));
+    }
 
-    // /**
-    //  * Tree:
-    //  *   1
-    //  *    \
-    //  *     2
-    //  *      \
-    //  *       3
-    //  */
-    // @Test
-    // public void testRightChain_branchCount() {
-    //     TreeNode root = new TreeNode(1, null,
-    //         new TreeNode(2, null,
-    //             new TreeNode(3)
-    //         )
-    //     );
-    //     assertEquals(2, TraversalPractice.branchCount(root));
-    // }
+    /**
+     * Tree:
+     *   1
+     *    \
+     *     2
+     *      \
+     *       3
+     */
+    @Test
+    public void testRightChain_branchCount() {
+        TreeNode root = new TreeNode(1, null,
+            new TreeNode(2, null,
+                new TreeNode(3)
+            )
+        );
+        assertEquals(2, TraversalPractice.branchCount(root));
+    }
 
-    // /**
-    //  * Tree:
-    //  *       10
-    //  *      /  \
-    //  *     5    15
-    //  *         /  \
-    //  *        12   20
-    //  */
-    // @Test
-    // public void testMultipleLeavesMixed_branchCount() {
-    //     TreeNode root = new TreeNode(10,
-    //         new TreeNode(5),
-    //         new TreeNode(15,
-    //             new TreeNode(12),
-    //             new TreeNode(20)
-    //         )
-    //     );
-    //     assertEquals(2, TraversalPractice.branchCount(root));
-    // }
+    /**
+     * Tree:
+     *       10
+     *      /  \
+     *     5    15
+     *         /  \
+     *        12   20
+     */
+    @Test
+    public void testMultipleLeavesMixed_branchCount() {
+        TreeNode root = new TreeNode(10,
+            new TreeNode(5),
+            new TreeNode(15,
+                new TreeNode(12),
+                new TreeNode(20)
+            )
+        );
+        assertEquals(2, TraversalPractice.branchCount(root));
+    }
 
     // /**
     //  * Tree:
