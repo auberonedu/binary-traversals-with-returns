@@ -128,106 +128,106 @@ public class TraversalPracticeTest {
      *     \      /  \
      *      6    0    77
      */
-    // @Test
-    // public void testSampleTree_size() {
-    //     TreeNode root = new TreeNode(9,
-    //         new TreeNode(2,
-    //             new TreeNode(7,
-    //                 new TreeNode(4, null, new TreeNode(6)),
-    //                 null
-    //             ),
-    //             new TreeNode(1)
-    //         ),
-    //         new TreeNode(5,
-    //             null,
-    //             new TreeNode(3,
-    //                 new TreeNode(8),
-    //                 new TreeNode(33, new TreeNode(0), new TreeNode(77))
-    //             )
-    //         )
-    //     );
-    //     assertEquals(12, TraversalPractice.size(root));
-    // }
+    @Test
+    public void testSampleTree_size() {
+        TreeNode root = new TreeNode(9,
+            new TreeNode(2,
+                new TreeNode(7,
+                    new TreeNode(4, null, new TreeNode(6)),
+                    null
+                ),
+                new TreeNode(1)
+            ),
+            new TreeNode(5,
+                null,
+                new TreeNode(3,
+                    new TreeNode(8),
+                    new TreeNode(33, new TreeNode(0), new TreeNode(77))
+                )
+            )
+        );
+        assertEquals(12, TraversalPractice.size(root));
+    }
 
-    // /**
-    //  * Tree:
-    //  *     42
-    //  */
-    // @Test
-    // public void testSingleNode_size() {
-    //     TreeNode root = new TreeNode(42);
-    //     assertEquals(1, TraversalPractice.size(root));
-    // }
+    /**
+     * Tree:
+     *     42
+     */
+    @Test
+    public void testSingleNode_size() {
+        TreeNode root = new TreeNode(42);
+        assertEquals(1, TraversalPractice.size(root));
+    }
 
-    // /**
-    //  * Tree:
-    //  *     1
-    //  *    /
-    //  *   2
-    //  */
-    // @Test
-    // public void testLeftOnlyChild_size() {
-    //     TreeNode root = new TreeNode(1, new TreeNode(2), null);
-    //     assertEquals(2, TraversalPractice.size(root));
-    // }
+    /**
+     * Tree:
+     *     1
+     *    /
+     *   2
+     */
+    @Test
+    public void testLeftOnlyChild_size() {
+        TreeNode root = new TreeNode(1, new TreeNode(2), null);
+        assertEquals(2, TraversalPractice.size(root));
+    }
 
-    // /**
-    //  * Tree:
-    //  *   1
-    //  *    \
-    //  *     3
-    //  */
-    // @Test
-    // public void testRightOnlyChild_size() {
-    //     TreeNode root = new TreeNode(1, null, new TreeNode(3));
-    //     assertEquals(2, TraversalPractice.size(root));
-    // }
+    /**
+     * Tree:
+     *   1
+     *    \
+     *     3
+     */
+    @Test
+    public void testRightOnlyChild_size() {
+        TreeNode root = new TreeNode(1, null, new TreeNode(3));
+        assertEquals(2, TraversalPractice.size(root));
+    }
 
-    // /**
-    //  * Tree: null (empty tree)
-    //  */
-    // @Test
-    // public void testNullInput_size() {
-    //     assertEquals(0, TraversalPractice.size(null));
-    // }
+    /**
+     * Tree: null (empty tree)
+     */
+    @Test
+    public void testNullInput_size() {
+        assertEquals(0, TraversalPractice.size(null));
+    }
 
-    // /**
-    //  * Tree:
-    //  *   1
-    //  *    \
-    //  *     2
-    //  *      \
-    //  *       3
-    //  */
-    // @Test
-    // public void testRightChain_size() {
-    //     TreeNode root = new TreeNode(1, null,
-    //         new TreeNode(2, null,
-    //             new TreeNode(3)
-    //         )
-    //     );
-    //     assertEquals(3, TraversalPractice.size(root));
-    // }
+    /**
+     * Tree:
+     *   1
+     *    \
+     *     2
+     *      \
+     *       3
+     */
+    @Test
+    public void testRightChain_size() {
+        TreeNode root = new TreeNode(1, null,
+            new TreeNode(2, null,
+                new TreeNode(3)
+            )
+        );
+        assertEquals(3, TraversalPractice.size(root));
+    }
 
-    // /**
-    //  * Tree:
-    //  *       10
-    //  *      /  \
-    //  *     5    15
-    //  *         /  \
-    //  *        12   20
-    //  */
-    // @Test
-    // public void testMultipleLeavesMixed_size() {
-    //     TreeNode root = new TreeNode(10,
-    //         new TreeNode(5),
-    //         new TreeNode(15,
-    //             new TreeNode(12),
-    //             new TreeNode(20)
-    //         )
-    //     );
-    //     assertEquals(5, TraversalPractice.size(root));
-    // }
+    /**
+     * Tree:
+     *       10
+     *      /  \
+     *     5    15
+     *         /  \
+     *        12   20
+     */
+    @Test
+    public void testMultipleLeavesMixed_size() {
+        TreeNode root = new TreeNode(10,
+            new TreeNode(5),
+            new TreeNode(15,
+                new TreeNode(12),
+                new TreeNode(20)
+            )
+        );
+        assertEquals(5, TraversalPractice.size(root));
+    }
 
     // /**
     //  * Tree:
