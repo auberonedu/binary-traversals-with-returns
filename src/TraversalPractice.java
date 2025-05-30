@@ -60,7 +60,18 @@ public class TraversalPractice {
      * @return the number of nodes in the tree
      */
     public static int size(TreeNode node) {
-        return -1;
+        if (node == null)
+            return 0;
+
+        int count = 0;
+
+        if (node != null) {
+            count++;
+        }
+        count += size(node.left);
+        count += size(node.right);
+
+        return count;
     }
 
     /**
