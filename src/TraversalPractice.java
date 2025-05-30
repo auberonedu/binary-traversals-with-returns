@@ -19,6 +19,8 @@ public class TraversalPractice {
      * 
      * Output: 92 (The leaf nodes sum as 6 + 1 + 8 + 0 + 77)
      * 
+     *
+     * 
      * @param node the root of the tree
      * @return the sum of the leaf node values
      */
@@ -27,12 +29,12 @@ public class TraversalPractice {
             return 0;
         }
 
-        int sum = node.data;
+        
+        if (node.left == null && node.right == null) {
+            return node.data;
+        }
 
-        sum += sumLeafNodes(node.left);
-        sum += sumLeafNodes(node.right);
-
-        return sum;
+        return sumLeafNodes(node.left) + sumLeafNodes(node.right);
     }
 
     /**
