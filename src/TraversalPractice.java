@@ -6,16 +6,16 @@ public class TraversalPractice {
      * 
      * Example:
      * 
-     *              9
-     *             / \
-     *            2   5
-     *           / \   \
-     *          7   1   3
-     *         /       / \
-     *        4       8  33
-     *         \        /  \
-     *          6      0    77
-     *         
+     * 9
+     * / \
+     * 2 5
+     * / \ \
+     * 7 1 3
+     * / / \
+     * 4 8 33
+     * \ / \
+     * 6 0 77
+     * 
      * 
      * Output: 92 (The leaf nodes sum as 6 + 1 + 8 + 0 + 77)
      * 
@@ -23,7 +23,17 @@ public class TraversalPractice {
      * @return the sum of the leaf node values
      */
     public static int sumLeafNodes(TreeNode node) {
-        return -1;
+        if (node == null)
+            return 0;
+
+        int sum = 0;
+        if (node.left == null && node.right == null) {
+            sum += node.data;
+        }
+        sum += sumLeafNodes(node.left);
+        sum += sumLeafNodes(node.right);
+
+        return sum;
     }
 
     /**
@@ -33,16 +43,16 @@ public class TraversalPractice {
      * 
      * Example:
      * 
-     *              9
-     *             / \
-     *            2   5
-     *           / \   \
-     *          7   1   3
-     *         /       / \
-     *        4       8  33
-     *         \        /  \
-     *          6      0    77
-     *         
+     * 9
+     * / \
+     * 2 5
+     * / \ \
+     * 7 1 3
+     * / / \
+     * 4 8 33
+     * \ / \
+     * 6 0 77
+     * 
      * 
      * Output: 12 (there are 12 nodes in the tree)
      * 
@@ -50,7 +60,18 @@ public class TraversalPractice {
      * @return the number of nodes in the tree
      */
     public static int size(TreeNode node) {
-        return -1;
+        if (node == null)
+            return 0;
+
+        int count = 0;
+
+        if (node != null) {
+            count++;
+        }
+        count += size(node.left);
+        count += size(node.right);
+
+        return count;
     }
 
     /**
@@ -60,16 +81,16 @@ public class TraversalPractice {
      * 
      * Example:
      * 
-     *              9
-     *             / \
-     *            2   5
-     *           / \   \
-     *          7   1   3
-     *         /       / \
-     *        4       8  33
-     *         \        /  \
-     *          6      0    77
-     *         
+     * 9
+     * / \
+     * 2 5
+     * / \ \
+     * 7 1 3
+     * / / \
+     * 4 8 33
+     * \ / \
+     * 6 0 77
+     * 
      * 
      * Output: 7 (There are seven branch nodes: 9, 2, 7, 4, 5, 3, and 33)
      * 
@@ -77,9 +98,18 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int branchCount(TreeNode node) {
-        return -1;
-    }
+        if (node == null)
+            return 0;
 
+        int count = 0;
+        if (node.left != null || node.right != null) {
+            count++;
+        }
+        count += branchCount(node.left);
+        count += branchCount(node.right);
+
+        return count;
+    }
 
     /**
      * Returns the maximum value in the tree.
@@ -88,16 +118,16 @@ public class TraversalPractice {
      * 
      * Example:
      * 
-     *              9
-     *             / \
-     *            2   5
-     *           / \   \
-     *          7   1   3
-     *         /       / \
-     *        4       8  33
-     *         \        /  \
-     *          6      0    77
-     *         
+     * 9
+     * / \
+     * 2 5
+     * / \ \
+     * 7 1 3
+     * / / \
+     * 4 8 33
+     * \ / \
+     * 6 0 77
+     * 
      * 
      * Output: 77
      * 
@@ -105,6 +135,19 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int max(TreeNode node) {
-        return Integer.MIN_VALUE;
+        if (node == null)
+            return Integer.MIN_VALUE;
+
+        int max = node.data;
+        int leftMax = max(node.left);
+        int rightMax = max(node.right);
+
+        if (leftMax > max)
+            max = leftMax;
+        if (rightMax > max)
+            max = rightMax;
+
+        return max;
+
     }
 }
