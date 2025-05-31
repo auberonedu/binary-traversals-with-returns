@@ -34,7 +34,7 @@ public class TraversalPractice {
         if (node.left == null && node.right == null) {
             total+=node.data;
         }
-        
+
         total += sumLeafNodes(node.left);
 
         total += sumLeafNodes(node.right);
@@ -68,7 +68,23 @@ public class TraversalPractice {
      * @return the number of nodes in the tree
      */
     public static int size(TreeNode node) {
-        return -1;
+        //create a variable to store count
+        int count = 0;
+
+        //check if null then return 0
+        if(node == null) return 0;
+
+        //recursion using size()
+        //if statment to count if it is a node
+        if(node != null){
+            count++;
+        }
+
+        count += size(node.left);
+
+        count += size(node.right);
+
+        return count;
     }
 
     /**
