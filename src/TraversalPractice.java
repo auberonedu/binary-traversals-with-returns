@@ -111,7 +111,22 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int branchCount(TreeNode node) {
-        return -1;
+        //create a branch count varaible
+        int branchCountVariable = 0;
+
+        //check if null then return 0
+        if(node == null) return 0;
+
+        //if statement to check whether it is a branch node and increment
+        //recursion
+        if (node.left != null || node.right != null) {
+            branchCountVariable++;
+        }
+        branchCountVariable += branchCount(node.left);
+
+        branchCountVariable += branchCount(node.right);
+
+        return branchCountVariable;
     }
 
 
