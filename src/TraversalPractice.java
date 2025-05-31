@@ -23,7 +23,25 @@ public class TraversalPractice {
      * @return the sum of the leaf node values
      */
     public static int sumLeafNodes(TreeNode node) {
-        return -1;
+        if (node == null) return 0;
+
+        //create variable to hold the sum
+        int total = 0;
+
+   
+
+        //This checks for leaf nodes because we know leaf nodes do not have anymore nodes to go to
+        if (node.left == null && node.right == null) {
+            total+=node.data;
+        }
+        
+        total += sumLeafNodes(node.left);
+
+        total += sumLeafNodes(node.right);
+
+    
+        
+        return total;
     }
 
     /**
