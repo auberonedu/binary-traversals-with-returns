@@ -90,7 +90,13 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int branchCount(TreeNode node) {
-        return -1;
+        if (node == null) return 0;
+
+        int count = 0;
+        if (node.left != null || node.right != null) count++;
+        count += branchCount(node.left);
+        count += branchCount(node.right);
+        return count;
     }
 
 
