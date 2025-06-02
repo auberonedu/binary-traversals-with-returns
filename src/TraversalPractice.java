@@ -118,6 +118,13 @@ public class TraversalPractice {
         count += branchCount(node.right);
 
         return count;
+
+        // solution 2:
+        // if (node == null || (node.left == null && node.right == null)) return 0;
+        // return 1 + branchCount(node.left) + branchCount(node.right);
+
+        // solution 3:
+        //return node == null || (node.left == null && node.right == null) ? 0 : 1 + branchCount(node.left) + branchCount(node.right);
     }
 
 
@@ -161,7 +168,5 @@ public class TraversalPractice {
         currentMax = Math.max(currentMax, rightMax);
 
         return currentMax;
-
-        
     }
 }
