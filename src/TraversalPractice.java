@@ -137,6 +137,24 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int max(TreeNode node) {
-        return Integer.MIN_VALUE;
+        if (node == null) return Integer.MIN_VALUE;
+
+        int maxValue = node.data;
+
+        if (node.left != null) {
+            int leftMax = max(node.left);
+            if (leftMax > maxValue) {
+                maxValue = leftMax;
+            }
+        }
+
+        if (node.right != null) {
+            int rightMax = max(node.right);
+            if (rightMax > maxValue) {
+                maxValue = rightMax;
+            }
+        }
+
+        return maxValue;
     }
 }
