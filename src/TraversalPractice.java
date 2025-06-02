@@ -23,7 +23,25 @@ public class TraversalPractice {
      * @return the sum of the leaf node values
      */
     public static int sumLeafNodes(TreeNode node) {
-        return -1;
+        if (node == null) return 0;
+
+        //create variable to hold the sum
+        int total = 0;
+
+   
+
+        //This checks for leaf nodes because we know leaf nodes do not have anymore nodes to go to
+        if (node.left == null && node.right == null) {
+            total+=node.data;
+        }
+
+        total += sumLeafNodes(node.left);
+
+        total += sumLeafNodes(node.right);
+
+    
+        
+        return total;
     }
 
     /**
@@ -50,7 +68,23 @@ public class TraversalPractice {
      * @return the number of nodes in the tree
      */
     public static int size(TreeNode node) {
-        return -1;
+        //create a variable to store count
+        int count = 0;
+
+        //check if null then return 0
+        if(node == null) return 0;
+
+        //recursion using size()
+        //if statment to count if it is a node
+        if(node != null){
+            count++;
+        }
+
+        count += size(node.left);
+
+        count += size(node.right);
+
+        return count;
     }
 
     /**
@@ -77,7 +111,22 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int branchCount(TreeNode node) {
-        return -1;
+        //create a branch count varaible
+        int branchCountVariable = 0;
+
+        //check if null then return 0
+        if(node == null) return 0;
+
+        //if statement to check whether it is a branch node and increment
+        //recursion
+        if (node.left != null || node.right != null) {
+            branchCountVariable++;
+        }
+        branchCountVariable += branchCount(node.left);
+
+        branchCountVariable += branchCount(node.right);
+
+        return branchCountVariable;
     }
 
 
@@ -105,6 +154,23 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int max(TreeNode node) {
-        return Integer.MIN_VALUE;
+        //If the input node is null, returns Integer.MIN_VALUE.
+        if (node == null) return Integer.MIN_VALUE;
+
+        //create a variables storing max
+        int max = node.data;
+        int maxLeft = max(node.left);
+        int maxRight = max(node.right);
+
+
+        //use some sort of if statement to compare
+        if (maxLeft > max) {
+            max = maxLeft;
+        }
+        if (maxRight > max) {
+            max = maxRight;
+        }
+
+        return max;
     }
 }
