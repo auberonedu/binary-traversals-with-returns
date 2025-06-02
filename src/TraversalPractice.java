@@ -23,7 +23,17 @@ public class TraversalPractice {
      * @return the sum of the leaf node values
      */
     public static int sumLeafNodes(TreeNode node) {
-        return -1;
+         if (node == null) {
+        return 0;
+    }
+
+    // Check if it's a leaf node
+    if (node.left == null && node.right == null) {
+        return node.data;
+    }
+
+    // Recursively sum leaf nodes from left and right subtrees
+    return sumLeafNodes(node.left) + sumLeafNodes(node.right);
     }
 
     /**
