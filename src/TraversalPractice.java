@@ -23,7 +23,12 @@ public class TraversalPractice {
      * @return the sum of the leaf node values
      */
     public static int sumLeafNodes(TreeNode node) {
-        return -1;
+        if (node == null) return 0;
+
+        if (node.left == null && node.right == null) {
+            return node.data;
+        }
+        return sumLeafNodes(node.left) + sumLeafNodes(node.right);
     }
 
     /**
@@ -50,7 +55,18 @@ public class TraversalPractice {
      * @return the number of nodes in the tree
      */
     public static int size(TreeNode node) {
-        return -1;
+        if (node == null) return 0;
+
+        int total = 1;
+            if (node.left != null) {
+            total += size(node.left);
+        }
+
+        if (node.right != null) {
+            total += size(node.right);
+        }
+
+        return total;
     }
 
     /**
@@ -77,7 +93,23 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int branchCount(TreeNode node) {
-        return -1;
+        if (node == null) return 0;
+
+        int total = 0;
+
+        if (node.left != null || node.right != null) {
+            total = 1;
+        }
+
+        if (node.left != null) {
+            total += branchCount(node.left);
+        }
+
+        if (node.right != null) {
+            total += branchCount(node.right);
+        }
+
+        return total;
     }
 
 
@@ -105,6 +137,24 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int max(TreeNode node) {
-        return Integer.MIN_VALUE;
+        if (node == null) return Integer.MIN_VALUE;
+
+        int maxValue = node.data;
+
+        if (node.left != null) {
+            int leftMax = max(node.left);
+            if (leftMax > maxValue) {
+                maxValue = leftMax;
+            }
+        }
+
+        if (node.right != null) {
+            int rightMax = max(node.right);
+            if (rightMax > maxValue) {
+                maxValue = rightMax;
+            }
+        }
+
+        return maxValue;
     }
 }
