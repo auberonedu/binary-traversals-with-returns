@@ -26,13 +26,11 @@ public class TraversalPractice {
          if (node == null) {
         return 0;
     }
-
-    // Check if it's a leaf node
+ 
     if (node.left == null && node.right == null) {
         return node.data;
     }
 
-    // Recursively sum leaf nodes from left and right subtrees
     return sumLeafNodes(node.left) + sumLeafNodes(node.right);
     }
 
@@ -60,7 +58,11 @@ public class TraversalPractice {
      * @return the number of nodes in the tree
      */
     public static int size(TreeNode node) {
-        return -1;
+         if (node == null) {
+        return 0;
+    }
+
+    return 1 + size(node.left) + size(node.right);
     }
 
     /**
