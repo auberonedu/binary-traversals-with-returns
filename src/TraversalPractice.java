@@ -59,7 +59,9 @@ public class TraversalPractice {
      * @return the number of nodes in the tree
      */
     public static int size(TreeNode node) {
-
+        if (node == null) return 0;
+    
+        return 1 + size(node.left) + size(node.right);
         }
     
 
