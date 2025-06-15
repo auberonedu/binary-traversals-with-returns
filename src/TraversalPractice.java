@@ -107,7 +107,27 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int branchCount(TreeNode node) {
-        return -1;
+
+        int count = 0;
+
+        if(node == null){
+            return 0;
+        }
+
+        // If the node is a leaf node, it is not a branch node so return 0
+        if(node.left == null && node.right == null){
+            return 0;
+        }
+
+        // Count the current node as a branch node and recursively count the branch nodes in the left and right subtrees
+        int leftBranchCount = branchCount(node.left);
+        int rightBranchCount = branchCount(node.right);
+
+        // Return the total count of branch nodes
+        count = 1 + leftBranchCount + rightBranchCount;
+        
+        // Return
+        return count;
     }
 
 
