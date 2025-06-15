@@ -155,6 +155,23 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int max(TreeNode node) {
-        return Integer.MIN_VALUE;
+
+        int maximum = 0;
+
+        if (node == null) {
+            return Integer.MIN_VALUE;
+        }
+
+        // Get the maximum value from the left and right subtrees
+        int leftMax = max(node.left);
+        int rightMax = max(node.right);
+
+        // Maximum value among the current node's value, left subtree's max, and right subtree's max
+        maximum = Math.max(node.data, Math.max(leftMax, rightMax));
+
+        // Return the maximum value
+        return maximum;
+    
+      
     }
 }
