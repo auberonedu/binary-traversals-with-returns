@@ -23,8 +23,24 @@ public class TraversalPractice {
      * @return the sum of the leaf node values
      */
     public static int sumLeafNodes(TreeNode node) {
-        return -1;
+        if (node == null){
+            return 0;
+        }
+
+        // If the node is a leaf node, return its value
+        if(node.left == null && node.right == null) {
+            return node.data;
+        }
+
+        // Recursively calculate the sum of leaf nodes in the left and right subtrees
+        int lefSum = sumLeafNodes(node.left);
+        int rightSum = sumLeafNodes(node.right);
+
+        // Return the total sum of leaf nodes
+        return lefSum + rightSum;
+
     }
+    
 
     /**
      * Returns the total count of nodes in the tree.
@@ -50,7 +66,21 @@ public class TraversalPractice {
      * @return the number of nodes in the tree
      */
     public static int size(TreeNode node) {
-        return -1;
+        int count = 0;
+
+        if(node == null) {
+            return 0;
+        }
+
+        // Count the current node and recursively count the nodes in the left and right subtrees
+        int leftCount = size(node.left);
+        int rightCount = size(node.right);
+
+        // total count of nodes
+        count = 1 + leftCount + rightCount;
+
+        // Return 
+        return count;
     }
 
     /**
@@ -77,7 +107,27 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int branchCount(TreeNode node) {
-        return -1;
+
+        int count = 0;
+
+        if(node == null){
+            return 0;
+        }
+
+        // If the node is a leaf node, it is not a branch node so return 0
+        if(node.left == null && node.right == null){
+            return 0;
+        }
+
+        // Count the current node as a branch node and recursively count the branch nodes in the left and right subtrees
+        int leftBranchCount = branchCount(node.left);
+        int rightBranchCount = branchCount(node.right);
+
+        // Return the total count of branch nodes
+        count = 1 + leftBranchCount + rightBranchCount;
+        
+        // Return
+        return count;
     }
 
 
@@ -105,6 +155,23 @@ public class TraversalPractice {
      * @return the count of branch nodes in the tree
      */
     public static int max(TreeNode node) {
-        return Integer.MIN_VALUE;
+
+        int maximum = 0;
+
+        if (node == null) {
+            return Integer.MIN_VALUE;
+        }
+
+        // Get the maximum value from the left and right subtrees
+        int leftMax = max(node.left);
+        int rightMax = max(node.right);
+
+        // Maximum value among the current node's value, left subtree's max, and right subtree's max
+        maximum = Math.max(node.data, Math.max(leftMax, rightMax));
+
+        // Return the maximum value
+        return maximum;
+    
+      
     }
 }
